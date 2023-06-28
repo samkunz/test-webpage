@@ -1,0 +1,16 @@
+.leaflet-map {
+    height: 600px;
+    width: 900px;
+}
+
+.p-frequency {
+    font-size: 20px;
+}
+
+.spacer {
+    margin-bottom: 30px;
+}
+
+#frequency-input {
+    width: 500px;
+}
