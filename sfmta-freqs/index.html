@@ -3,29 +3,47 @@
 
 <head>
     <meta charset="utf-8">
-    <title>SFMTA Frequencies Map</title>
+    <title>SF Transit Frequencies</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-    crossorigin=""/>
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald&family=Lato:wght@300">
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <h1>SFMTA Frequencies Map</h1>
-    
-    <div class="leaflet-map" id="map"></div>
-    <div class="spacer"></div>
+    <h1>San Francisco Transit Frequencies</h1>
 
-    <p class=p-frequency>
-        Frequency (minutes): <span id=frequency-text></span>
+    <p id=about>
+        A Demo by Sam Kunz (<a href="about.html">About</a>)
     </p>
-    <div>
-        <input type="range" id="frequency-input" min="5" max="20" step="1">
+
+    <div class=default-margin>
+        <p class=default-margin>
+            Map displays lines with average time between vehicles
+            of <span id=frequency-digits></span> minutes or shorter
+        </p>
+    </div>
+    <div id=slider-div>
+        <!-- Note: if changing 'value' attribute below, MUST also change
+        DEFAULT_FREQUENCY in javascript, and vice versa. -->
+        <input type="range" id="frequency-input" min="5" max="20" step="1" value="10">
+    </div>
+    <div id=vehicle-type-div>
+        <p id="vehicle-type-p" class="lateral">Vehicle Type(s):</p>
+        <input type="checkbox" id="bus-checkbox" class="lateral vehicle-type-checkbox" name="bus" checked>
+        <label for="bus-checkbox" class="lateral right-space">Bus</label>
+        <input type="checkbox" id="rapid-bus-checkbox" class="lateral vehicle-type-checkbox" name="rapid-bus" checked>
+        <label for="rapid-bus-checkbox" class="lateral right-space">Rapid Bus</label>
+        <input type="checkbox" id="light-rail-checkbox" class="lateral vehicle-type-checkbox" name="light-rail" checked>
+        <label for="light-rail-checkbox" class="lateral right-space">Light Rail</label>
+        <input type="checkbox" id="cable-car-checkbox" class="lateral vehicle-type-checkbox" name="cable-car" checked>
+        <label for="cable-car-checkbox" class="lateral">Cable Car</label>
     </div>
 
+    <div class="leaflet-map" id="map"></div>
+
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-     crossorigin=""></script>
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="app.js" charset="utf-8"></script>
 </body>
 
