@@ -1,9 +1,10 @@
-li, p {
-    font-size: 18px;
+label, li, p {
+    font-size: 20px;
 }
 
 body {
     font-family: 'Lato', sans-serif;
+    margin: 0 1em;
 }
 
 h1 {
@@ -12,6 +13,13 @@ h1 {
     font-weight: normal;
     margin-bottom: 0px;
     margin-top: 0px;
+}
+
+.body-app {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
 }
 
 .reading-width {
@@ -26,12 +34,6 @@ h1 {
 
 .lateral {
     display: inline-block;
-}
-
-.leaflet-map {
-    height: 450px;
-    max-width: 100%;
-    width: 900px;
 }
 
 .right-space {
@@ -55,9 +57,28 @@ h1 {
     width: 600px;
 }
 
+#map {
+    flex: 1;
+}
+
+#non-map {
+    flex: 0 0 auto;
+    margin: 0 1em;
+}
+
 #slider-div {
     margin-bottom: 0px;
     margin-top: 10px;
+}
+
+#time-of-day-div {
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+#time-of-day-p {
+    margin-bottom: 10px;
+    margin-top: 5px;
 }
 
 #vehicle-type-div {
@@ -66,6 +87,6 @@ h1 {
 }
 
 #vehicle-type-p {
-    margin-bottom: 10px;
+    margin-bottom: 3px;
     margin-top: 3px;
 }

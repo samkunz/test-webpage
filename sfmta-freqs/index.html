@@ -10,39 +10,58 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
-    <h1>San Francisco Transit Frequencies</h1>
+<body class="body-app">
+    <div id="non-map">
+        <h1>San Francisco Transit Frequencies</h1>
 
-    <p id=about>
-        A Demo by
-        <a href="https://www.linkedin.com/in/samkunz/">Sam Kunz</a>
-        (<a href="about.html">About</a>)
-    </p>
-
-    <div class=default-margin>
-        <p class=default-margin>
-            Map displays lines with average time between vehicles
-            of <span id=frequency-digits></span> minutes or shorter
+        <p id=about>
+            A Demo by
+            <a href="https://www.linkedin.com/in/samkunz/">Sam Kunz</a>
+            (<a href="about.html">About</a>)
         </p>
-    </div>
-    <div id=slider-div>
-        <!-- Note: if changing 'value' attribute below, MUST also change
-        DEFAULT_FREQUENCY in javascript, and vice versa. -->
-        <input type="range" id="frequency-input" min="5" max="20" step="1" value="10">
-    </div>
-    <div id=vehicle-type-div>
-        <p id="vehicle-type-p" class="lateral">Vehicle Type(s):</p>
-        <input type="checkbox" id="bus-checkbox" class="lateral vehicle-type-checkbox" name="bus" checked>
-        <label for="bus-checkbox" class="lateral right-space">Bus</label>
-        <input type="checkbox" id="rapid-bus-checkbox" class="lateral vehicle-type-checkbox" name="rapid-bus" checked>
-        <label for="rapid-bus-checkbox" class="lateral right-space">Rapid Bus</label>
-        <input type="checkbox" id="light-rail-checkbox" class="lateral vehicle-type-checkbox" name="light-rail" checked>
-        <label for="light-rail-checkbox" class="lateral right-space">Light Rail</label>
-        <input type="checkbox" id="cable-car-checkbox" class="lateral vehicle-type-checkbox" name="cable-car" checked>
-        <label for="cable-car-checkbox" class="lateral">Cable Car</label>
+
+        <div class=default-margin>
+            <p class=default-margin>
+                Map displays lines with average time between vehicles
+                of <span id=frequency-digits></span> minutes or shorter
+            </p>
+        </div>
+        <div id=slider-div>
+            <!-- Note: if changing 'value' attribute below, MUST also change
+            DEFAULT_FREQUENCY in javascript, and vice versa. -->
+            <input type="range" id="frequency-input" min="5" max="20" step="1" value="10">
+        </div>
+        <div id=vehicle-type-div>
+            <p id="vehicle-type-p" class="lateral">Vehicle Type(s):</p>
+            <input type="checkbox" id="bus-checkbox" class="lateral vehicle-type-checkbox" name="bus" checked>
+            <label for="bus-checkbox" class="lateral right-space">Bus</label>
+            <input type="checkbox" id="rapid-bus-checkbox" class="lateral vehicle-type-checkbox" name="rapid-bus" checked>
+            <label for="rapid-bus-checkbox" class="lateral right-space">Rapid Bus</label>
+            <input type="checkbox" id="light-rail-checkbox" class="lateral vehicle-type-checkbox" name="light-rail" checked>
+            <label for="light-rail-checkbox" class="lateral right-space">Light Rail</label>
+            <input type="checkbox" id="cable-car-checkbox" class="lateral vehicle-type-checkbox" name="cable-car" checked>
+            <label for="cable-car-checkbox" class="lateral">Cable Car</label>
+        </div>
+        <div id=time-of-day-div>
+            <p id=time-of-day-p class="lateral">Time of day:</p>
+
+            <input type="radio" id="morning-radio" class="lateral time-of-day-radio" name="time-of-day">
+            <label for="morning-radio" class="lateral right-space">Morning</label>
+
+            <!-- Note: if changing `checked` attribute to another radio button,
+                 MUST change timeOfDay state variable in js. -->
+            <input type="radio" id="midday-radio" class="lateral time-of-day-radio" name="time-of-day" checked>
+            <label for="midday-radio" class="lateral right-space">Midday</label>
+
+            <input type="radio" id="evening-radio" class="lateral time-of-day-radio" name="time-of-day">
+            <label for="evening-radio" class="lateral right-space">Evening</label>
+
+            <input type="radio" id="late-night-radio" class="lateral time-of-day-radio" name="time-of-day">
+            <label for="late-night-radio" class="lateral right-space">Late Night</label>
+        </div>
     </div>
 
-    <div class="leaflet-map" id="map"></div>
+    <div id="map"></div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
